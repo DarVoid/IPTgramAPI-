@@ -3,11 +3,11 @@ let express = require('express');
 let app = express();
 
 app.use(express.json());
+
 const schemaPost={
-  id:Joi.number(),
-  user:Joi.string(),
-  caption: Joi.string(),
-  link: Joi.string()
+  UserName:Joi.string(),
+  Caption: Joi.string(),
+  Imagem: Joi.string()
 };
 const parametrosProcura={
   search:Joi.string()
@@ -19,8 +19,8 @@ const postList=[
   UserName:"casimiro",
   // Data de publicação, em formato ISO 8601
   PostDate:"2019-01-31T10:42:54.492575+00:00",
-  Likes:0,
-  Coments:3,
+  Likes:[],
+  Coments:[],
   Imagem = "http://1.bp.blogspot.com/-2hBD_o8UcRQ/UwVqlwQ24KI/AAAAAAAAB54/OC5Fy54vxXs/s1600/passarostapada.jpg" ,
   Caption:"hsjshjshdsjchcdccdbbhdc"},
 
@@ -29,8 +29,8 @@ const postList=[
     UserName:"aluno3609",
     // Data de publicação, em formato ISO 8601
     PostDate:"2019-02-31T10:42:54.492575+00:00",
-    Likes:0,
-    Coments:3,
+    Likes:[],
+    Coments:[],
     Imagem = "https://oimparcial.com.br/media/2017/05/tubar%C3%A3o.jpg" ,
     Caption:"hsjshjshdsjchcdccdbbhdc"},
 
@@ -39,8 +39,8 @@ const postList=[
       UserName:"aluno19266",
       // Data de publicação, em formato ISO 8601
       PostDate:"2019-03-31T10:42:54.492575+00:00",
-      Likes:0,
-      Coments:3,
+      Likes:[],
+      Coments:[],
       Imagem = "http://4.bp.blogspot.com/-7NhRyCOVLjY/UA1DuDe8nlI/AAAAAAAAAXg/BE_25K3B5us/s1600/aguia0.jpg" ,
       Caption:"hsjshjshdsjchcdccdbbhdc"},
 
@@ -49,8 +49,8 @@ const postList=[
         UserName:"aluno6967",
         // Data de publicação, em formato ISO 8601
         PostDate:"2019-04-31T10:42:54.492575+00:00",
-        Likes:0,
-        Coments:3,
+        Likes:[],
+        Coments:[],
         Imagem = "http://cdn.olhares.pt/client/files/foto/big/555/5551684.jpg" ,
         Caption:"hsjshjshdsjchcdccdbbhdc"},
 
@@ -59,76 +59,86 @@ const postList=[
           UserName:"aluno8811",
           // Data de publicação, em formato ISO 8601
           PostDate:"2019-05-31T10:42:54.492575+00:00",
-          Likes:0,
-          Coments:3,
+          Likes:[],
+          Coments:[],
           Imagem = "http://www.vozdaplanicie.pt/images/250620131107-522-PatoBravo.jpg" ,
           Caption:"hsjshjshdsjchcdccdbbhdc"},
 ];
 
 const comList=[
-  {
+  { id: 1,
     UserName:"aluno5923",
     Text: "Lindo!",
-    PostDate:"2019-03-31T10:42:54.493159+00:00"
+    PostDate:"2019-03-31T10:42:54.493159+00:00",
+    pertenceA: 1
   },
 
-  {
-    UserName:"aluno8811",
-    Text: "Feio!",
-    PostDate:"2019-03-30T10:42:54.493159+00:00"
-  },
-
-  {
-    UserName:"aluno6967",
-    Text: "Muito bem",
-    PostDate:"2019-03-29T10:42:54.493159+00:00"
-  },
-
-  {
+  {id: 2,
     UserName:"aluno19266",
     Text: "Gostei!",
-    PostDate:"2019-03-28T10:42:54.493159+00:00"
+    PostDate:"2019-03-28T10:42:54.493159+00:00",
+    pertenceA: 1
   },
 
-  {
+  {id: 3,
     UserName:"aluno13936",
     Text: "Grande foto",
-    PostDate:"2019-03-27T10:42:54.493159+00:00"
+    PostDate:"2019-03-27T10:42:54.493159+00:00",
+    pertenceA: 1
   },
 
-  {
+  {id: 4,
     UserName:"aluno18781",
     Text: "Good",
-    PostDate:"2019-03-26T10:42:54.493159+00:00"
+    PostDate:"2019-03-26T10:42:54.493159+00:00",
+    pertenceA: 1
   },
-  {
+  {id: 5,
     UserName:"aluno17902",
     Text: "Grande pic",
-    PostDate:"2019-03-25T10:42:54.493159+00:00"
+    PostDate:"2019-03-25T10:42:54.493159+00:00",
+    pertenceA: 2
   },
-  {
+  {id: 6,
     UserName:"aluno17101",
     Text: "Podia estar melhor tirada",
-    PostDate:"2019-03-24T10:42:54.493159+00:00"
+    PostDate:"2019-03-24T10:42:54.493159+00:00",
+    pertenceA: 1
   },
 
-  {
+  {id: 8,
     UserName:"aluno11058",
     Text: "Muito interessante",
-    PostDate:"2019-03-23T10:42:54.493159+00:00"
+    PostDate:"2019-03-23T10:42:54.493159+00:00",
+    pertenceA: 1
   },
 
-  {
+  {id: 9,
     UserName:"aluno14044",
     Text: "Siga!",
-    PostDate:"2019-03-22T10:42:54.493159+00:00"
+    PostDate:"2019-03-22T10:42:54.493159+00:00",
+    pertenceA: 1
   },
 
-  {
+  {id: 10,
     UserName:"aluno14055",
     Text: "Bela foto!",
-    PostDate:"2019-03-21T10:42:54.493159+00:00"
+    PostDate:"2019-03-21T10:42:54.493159+00:00",
+    pertenceA: 1
   },
+  {id: 11,
+    UserName:"aluno8811",
+    Text: "Feio!",
+    PostDate:"2019-03-30T10:42:54.493159+00:00",
+    pertenceA: 1
+  },
+
+  {id: 12,
+    UserName:"aluno6967",
+    Text: "Muito bem",
+    PostDate:"2019-03-29T10:42:54.493159+00:00",
+    pertenceA: 1
+  }
 ];
 const users=[
   {
@@ -881,7 +891,16 @@ const users=[
 //retorna 1 post com id {id}
 app.get('/api/posts/:id', (req, res)=>{
   
-  const post= postList.find(c=> c.id===parseInt(req.params.id));
+  const post= postList.find(c=> c.id===parseInt(req.params.Id));
+  
+  if(!post) return res.status(404).send("resource not found");
+  //if everything checks out send the thing requested
+  res.send(post);  
+  
+});//retorna 1 post com id {id}
+app.get('/api/comments/:id', (req, res)=>{
+  
+  const post= comList.find(c=> c.id===parseInt(req.params.id));
   
   if(!post) return res.status(404).send("resource not found");
   //if everything checks out send the thing requested
@@ -896,15 +915,47 @@ app.get('/api/posts', (req, res)=>{
   {  //400 is a Bad Request
     req.status(400).send(result.error.details[0].message);
   }
-  res.send(postList.filter((c)=>{c.user.contains(req.params.search) || c.caption.contains(req.params.search)}));
+  res.send(postList.filter((c)=>{c.UserName.contains(req.params.search) || c.Caption.contains(req.params.search)}));
 
 });
 
 
 app.post('/api/createPost',(req, res)=>{
+  //adiciona novo post
+   
+ const result=Joi.validate(req.body, schemaPost);
+ if(result.error){
+   //400 is a Bad Request
+   req.status(400).send(result.error.details[0].message);
+   return;//otherwise multiple responses ould be sent
+ }
+ const result2=users.filter(c=> username==req.body.UserName);
+ if(result2.length!=1){
+   //400 is a Bad Request
+   req.status(404).send("user not found");
+   return;//otherwise multiple responses ould be sent
+ }
+  //creates object with body of request as values this thing changes
+  const newPost={
+    id: postList.length +1,
+    Caption: req.body.Caption,
+    UserName: req.body.UserName,
+    Likes: [],
+    Coments:[],
+    Imagem: req.body.Imagem,
+    PostDate: new Date()
+
+  };
+  console.log(newPost);
+  postList.push(newPost);
+  //convention returns what it creates
+ return res.send(newPost);
+});
+
+app.post('/api/createComment',(req, res)=>{
    //adiciona novo post
     
-  const result=Joi.validate(req.body, schemaPost);
+  const result=Joi.validate(req.body, commentPost);
   if(result.error){
     //400 is a Bad Request
     req.status(400).send(result.error.details[0].message);
@@ -916,113 +967,35 @@ app.post('/api/createPost',(req, res)=>{
     req.status(404).send("user not found");
     return;//otherwise multiple responses ould be sent
   }
+  const result3=postList.filter(c=>id==req.body.id);
+  if(result3.length!=1){
+      //400 is a Bad Request
+      req.status(404).send("user not found");
+      return;//otherwise multiple responses ould be sent
+  }
    //creates object with body of request as values this thing changes
-   const newPost={
-     id: postList.length +1,
-     caption: req.body.caption,
-     user: req.body.user,
-     likeCount: 0,
-     commentCount:0,
-     link: req.body.link,
-     postDate: new Date()
+   const newComment={
+     id: comList.length +1,
+     UserName: req.body.UserName,
+    Text: req.body.texto,
+    PostDate: new Date(), 
+    pertenceA: req.body.id,
 
    };
-   console.log(newPost);
-   postList.push(newPost);
+   
+  postList.map((each)=>{
+    if (each.id==req.body.id){
+      each.Coments.push(req.body.id);
+    }
+  })
+  
+   comList.push(newComment);
+   
    //convention returns what it creates
-  return res.send(newPost);
+  return res.send(newComment);
  });
 
 
-// const objectosReq=[
-//   {id: 1, description:"Tomar conta de Idoso",user: "John", accepted:false,acceptedBy: null, concluido:false },
-//   {id: 2, description:"Levantar medicamentos",user: "Aaron", accepted:false,acceptedBy: null, concluido:false },
-//   {id: 3, description:"Fazer as compras",user: "Jorge" , accepted:false,acceptedBy: null, concluido:false},
-//   {id: 4, description:"Fazer jantar a Idoso",user: "Joahn", accepted:false,acceptedBy: null, concluido:false }
-// ];
-
-
-
-
-
-
-
-
-// app.get('/api/objectosReq', (req, res)=>{
-  
-//      res.send(objectosReq);  
-// });
-
-// app.get('/api/objectosReq/livres', (req, res)=>{
-  
-//   res.send(objectosReq.filter(c=>!c.accepted));  
-// });
-// app.get('/api/objectos/:id', (req, res)=>{
-  
-//   const course= objectos.find(c=> c.id===parseInt(req.params.id));
-  
-//   if(!course) res.status(404).send("resource not found");
-//   //if everything checks out send the thing requested
-//   res.send(course);  
-  
-// });
-// app.get('/api/objectosReq/:id', (req, res)=>{
-  
-//   var cors = require('cors');
-
-//   const course= objectosReq.find(c=> c.id===parseInt(req.params.id));
-//   //if the thing is not found set status as 404 message is optional
-//   if(!course) res.status(404).send("resource not found");
-//   //if everything checks out send the thing requested
-//   res.send(course);  
-  
-// // });
-
-//  app.post('/api/createSthReq',(req, res)=>{
-   
-    
-//   const result=Joi.validate(req.body, schema2);
-//   if(result.error){
-//     //400 is a Bad Request
-//     req.status(400).send(result.error.details[0].message);
-//     return;//otherwise multiple responses ould be sent
-//   }
-//    //creates object with body of request as values this thing changes
-//    const sth={
-//      id: objectosReq.length +1,
-//      description: req.body.description,
-//      user: req.body.user,
-//      accepted: false,
-//      acceptedBy: null, 
-//      concluido:false
-//    };
-//    console.log(req.body.name);
-//    objectosReq.push(sth);
-//    //convention returns what it creates
-//    res.send(sth);
-//  });
-//  app.post('/api/updateSth/',(req, res)=>{
-   
-//     const stuff= objectosReq.find(c=>c.id===parseInt(req.body.id));
-   
- 
-//       stuff.acceptedBy= req.body.name;
-//       stuff.accepted=true;
- 
-//       console.log(stuff);
-//     //convention returns what it creates
-//     res.send(stuff);
-
-//  });
-//  app.delete('/api/deleteSth/:id',(req, res)=>{
-//   const stuff= objectos.find(c=> c.id===parseInt(req.params.id));
-//   if(!stuff){res.status(404).send("resource not found");return;}
-//   const index = objectos.indexOf(stuff);
-//   objectos.splice(index, 1);
-//   res.send(stuff); 
-
-//  });
- //variavel de ambiente do server ou 3000
 
 const _PORT = process.env.PORT || 3004;
 app.listen(_PORT, ()=>{
