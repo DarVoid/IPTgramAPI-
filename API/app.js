@@ -773,7 +773,7 @@ app.get('/api/posts/:id', (req, res)=>{
   
 });
 
-
+//retorna todos os posts que tenham user ou utilizador que contenha a string de pesquisa
 app.get('/api/posts', (req, res)=>{
   const result=Joi.validate(req.params, parametrosProcura);
   if(result.error)
