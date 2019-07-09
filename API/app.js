@@ -13,7 +13,123 @@ const parametrosProcura={
   search:Joi.string()
 };
 //eventualmente por isto a vir de bd
-const postList=[];
+const postList=[
+  {
+  Id: "1",
+  UserName:"casimiro",
+  // Data de publicação, em formato ISO 8601
+  PostDate:"2019-01-31T10:42:54.492575+00:00",
+  Likes:0,
+  Coments:3,
+  Imagem = "http://1.bp.blogspot.com/-2hBD_o8UcRQ/UwVqlwQ24KI/AAAAAAAAB54/OC5Fy54vxXs/s1600/passarostapada.jpg" ,
+  Caption:"hsjshjshdsjchcdccdbbhdc"},
+
+  {
+    Id: "2",
+    UserName:"aluno3609",
+    // Data de publicação, em formato ISO 8601
+    PostDate:"2019-02-31T10:42:54.492575+00:00",
+    Likes:0,
+    Coments:3,
+    Imagem = "https://oimparcial.com.br/media/2017/05/tubar%C3%A3o.jpg" ,
+    Caption:"hsjshjshdsjchcdccdbbhdc"},
+
+    {
+      Id: "3",
+      UserName:"aluno19266",
+      // Data de publicação, em formato ISO 8601
+      PostDate:"2019-03-31T10:42:54.492575+00:00",
+      Likes:0,
+      Coments:3,
+      Imagem = "http://4.bp.blogspot.com/-7NhRyCOVLjY/UA1DuDe8nlI/AAAAAAAAAXg/BE_25K3B5us/s1600/aguia0.jpg" ,
+      Caption:"hsjshjshdsjchcdccdbbhdc"},
+
+      {
+        Id: "4",
+        UserName:"aluno6967",
+        // Data de publicação, em formato ISO 8601
+        PostDate:"2019-04-31T10:42:54.492575+00:00",
+        Likes:0,
+        Coments:3,
+        Imagem = "http://cdn.olhares.pt/client/files/foto/big/555/5551684.jpg" ,
+        Caption:"hsjshjshdsjchcdccdbbhdc"},
+
+        {
+          Id: "5",
+          UserName:"aluno8811",
+          // Data de publicação, em formato ISO 8601
+          PostDate:"2019-05-31T10:42:54.492575+00:00",
+          Likes:0,
+          Coments:3,
+          Imagem = "http://www.vozdaplanicie.pt/images/250620131107-522-PatoBravo.jpg" ,
+          Caption:"hsjshjshdsjchcdccdbbhdc"},
+];
+
+const comList=[
+  {
+    UserName:"aluno5923",
+    Text: "Lindo!",
+    PostDate:"2019-03-31T10:42:54.493159+00:00"
+  },
+
+  {
+    UserName:"aluno8811",
+    Text: "Feio!",
+    PostDate:"2019-03-30T10:42:54.493159+00:00"
+  },
+
+  {
+    UserName:"aluno6967",
+    Text: "Muito bem",
+    PostDate:"2019-03-29T10:42:54.493159+00:00"
+  },
+
+  {
+    UserName:"aluno19266",
+    Text: "Gostei!",
+    PostDate:"2019-03-28T10:42:54.493159+00:00"
+  },
+
+  {
+    UserName:"aluno13936",
+    Text: "Grande foto",
+    PostDate:"2019-03-27T10:42:54.493159+00:00"
+  },
+
+  {
+    UserName:"aluno18781",
+    Text: "Good",
+    PostDate:"2019-03-26T10:42:54.493159+00:00"
+  },
+  {
+    UserName:"aluno17902",
+    Text: "Grande pic",
+    PostDate:"2019-03-25T10:42:54.493159+00:00"
+  },
+  {
+    UserName:"aluno17101",
+    Text: "Podia estar melhor tirada",
+    PostDate:"2019-03-24T10:42:54.493159+00:00"
+  },
+
+  {
+    UserName:"aluno11058",
+    Text: "Muito interessante",
+    PostDate:"2019-03-23T10:42:54.493159+00:00"
+  },
+
+  {
+    UserName:"aluno14044",
+    Text: "Siga!",
+    PostDate:"2019-03-22T10:42:54.493159+00:00"
+  },
+
+  {
+    UserName:"aluno14055",
+    Text: "Bela foto!",
+    PostDate:"2019-03-21T10:42:54.493159+00:00"
+  },
+];
 const users=[
   {
     UserName: "afecarvalho",
